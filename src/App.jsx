@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { AuthProvider, useAuth } from "./context/AuthContext";
-import { useBookings } from "./hooks/useData";
+import { useBookings } from "./hooks/usedata";
 import Sidebar from "./components/Sidebar";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Bookings from "./pages/Bookings";
 import Customers from "./pages/Customers";
-import AddBooking from "./pages/AddBooking";
+import Addbooking from "./pages/Addbooking";
 import './App.css';
 
 function AdminApp() {
@@ -40,7 +40,7 @@ function AdminApp() {
       case "dashboard":  return <Dashboard bookings={bookings} />;
       case "bookings":   return <Bookings bookings={bookings} updateStatus={updateStatus} addNote={addNote} deleteBooking={deleteBooking} />;
       case "customers":  return <Customers bookings={bookings} />;
-      case "add-booking": return <AddBooking addBooking={addBooking} />;
+      case "add-booking": return <Addbooking addBooking={addbooking} />;
       default:           return <Dashboard bookings={bookings} />;
     }
   };
