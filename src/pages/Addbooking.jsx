@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function AddBooking({ addBooking }) {
+export default function Addbooking({ addbooking }) {
   const [form, setForm] = useState({
     name: "", phone: "", date: "", time: "", service: "", route: "", message: "", passengers: "",
   });
@@ -13,7 +13,7 @@ export default function AddBooking({ addBooking }) {
     e.preventDefault();
     setLoading(true);
     try {
-      await addBooking(form);
+      await addbooking(form);
       setForm({ name: "", phone: "", date: "", time: "", service: "", route: "", message: "", passengers: "" });
       setSuccess(true);
       setTimeout(() => setSuccess(false), 3000);
