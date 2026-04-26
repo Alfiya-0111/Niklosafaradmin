@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AuthProvider, useAuth } from "./context/AuthContext";
-import { useBookings } from "./hooks/usedata";
+import { useBookings } from "./hooks/Usedata";
 import Sidebar from "./components/Sidebar";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
@@ -13,7 +13,7 @@ function AdminApp() {
   const { user, loading } = useAuth();
   const [active, setActive] = useState("dashboard");
   const [mobileOpen, setMobileOpen] = useState(false);
-  const { bookings, loading: bookingsLoading, updateStatus, addNote, deleteBooking, addBooking } = useBookings();
+  const { bookings, loading: bookingsLoading, updateStatus, addNote, deleteBooking, addbooking } = useBookings();
 
   if (loading) {
     return (
@@ -40,7 +40,7 @@ function AdminApp() {
       case "dashboard":  return <Dashboard bookings={bookings} />;
       case "bookings":   return <Bookings bookings={bookings} updateStatus={updateStatus} addNote={addNote} deleteBooking={deleteBooking} />;
       case "customers":  return <Customers bookings={bookings} />;
-      case "add-booking": return <Addbooking addBooking={addbooking} />;
+      case "add-booking": return <Addbooking addbooking={addbooking} />;
       default:           return <Dashboard bookings={bookings} />;
     }
   };
