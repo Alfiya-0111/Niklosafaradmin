@@ -1,16 +1,18 @@
+// src/firebase.js (Admin project)
 import { initializeApp } from "firebase/app";
+import { getDatabase } from "firebase/database";  // ✅ Realtime DB
 import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBMax_eoj6dzobyL6T6-pmzx-D69QCXlY8",
   authDomain: "niklosafar.firebaseapp.com",
+  databaseURL: "https://niklosafar-default-rtdb.firebaseio.com",  // 🔥 YEH HONA CHAHIYE!
   projectId: "niklosafar",
-  storageBucket: "niklosafar.firebasestorage.app",
-  messagingSenderId: "716029795483",
-  appId: "1:716029795483:web:08026a75f8fbd932f1fa3e"
+  storageBucket: "niklosafar.appspot.com",
+  messagingSenderId: "123456789",
+  appId: "1:123456789:web:abcdef"
 };
 
 const app = initializeApp(firebaseConfig);
+export const db = getDatabase(app);   // ✅ Realtime DB
 export const auth = getAuth(app);
-export const db = getFirestore(app);
